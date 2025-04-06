@@ -1,0 +1,14 @@
+[Unit]
+Description=Kubernetes Join API Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/node /opt/kubejoin-api/join-api.js
+WorkingDirectory=/opt/kubejoin-api
+Restart=always
+Environment=NODE_ENV=production
+EnvironmentFile=/opt/kubejoin-api/.env
+
+[Install]
+WantedBy=multi-user.target
+
